@@ -5,6 +5,7 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
@@ -14,8 +15,9 @@ public class Product {
 	private String title;
 	@XmlElement
 	private String price;
+	@XmlElementWrapper( name="features")
 	@XmlElement
-	private List<String> features;
+	private List<Feature> features;
 		
 	public String getTitle() {
 		return title;
@@ -25,7 +27,7 @@ public class Product {
 		return price;
 	}
 	
-	public List<String> getFeatures() {
+	public List<Feature> getFeatures() {
 		return features;
 	}
 	
@@ -39,7 +41,7 @@ public class Product {
 		return this;
 	}
 	
-	public Product setFeatures(List<String> features) {
+	public Product setFeatures(List<Feature> features) {
 		this.features = features;
 		return this;
 	}

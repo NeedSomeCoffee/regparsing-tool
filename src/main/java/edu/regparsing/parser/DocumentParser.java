@@ -7,6 +7,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import edu.regparsing.models.Feature;
 import edu.regparsing.models.Product;
 
 public class DocumentParser {
@@ -45,14 +46,14 @@ public class DocumentParser {
 		return price;
 	}
 
-	private List<String> parseProductFeatures(Document doc) {
+	private List<Feature> parseProductFeatures(Document doc) {
 		Elements selected = doc.select("#feature-bullets ul li span");
-		List<String> features = new ArrayList<String>();
+		List<Feature> features = new ArrayList<Feature>();
 		
 		
 		if(!selected.isEmpty()) {
 			for(Element singleFeature : selected) {
-				features.add(singleFeature.text());
+				features.add(new Feature(singleFeature.text()));
 			}
 		}
 		
