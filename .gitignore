@@ -10,6 +10,7 @@
 .classpath
 
 /target/*
+/data/*
 
 # Package Files #
 *.jar
