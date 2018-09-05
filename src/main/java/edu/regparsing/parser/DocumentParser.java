@@ -16,6 +16,7 @@ public class DocumentParser {
 		Product product = new Product();
 		
 		product.setTitle(parseProductTitle(doc))
+				.setDescription(parseProductDescription(doc))
 				.setPrice(parseProductPrice(doc))
 				.setFeatures(parseProductFeatures(doc));
 				
@@ -33,6 +34,18 @@ public class DocumentParser {
 		
 		return title;
 	}
+	
+	private String parseProductDescription(Document doc) {
+		Elements selected = doc.select("#productDescription p");
+		String description = "";
+		
+		
+		if(!selected.isEmpty()) {
+			description = selected.first().text();
+		}
+		
+		return description;
+	}
 
 	private String parseProductPrice(Document doc) {
 		Elements selected = doc.select("#priceblock_ourprice");
@@ -47,7 +60,7 @@ public class DocumentParser {
 	}
 
 	private List<Feature> parseProductFeatures(Document doc) {
-		Elements selected = doc.select("#feature-bullets ul li span");
+		Elements selected = doc.select("#feature-bullets ul li > span");
 		List<Feature> features = new ArrayList<Feature>();
 		
 		

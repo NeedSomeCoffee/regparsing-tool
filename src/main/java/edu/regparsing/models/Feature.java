@@ -7,28 +7,27 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Feature {
-	private String feature;
+	private String value;
 	
 	public Feature() {}
 	
 	public Feature(String feature) {
-		super();
-		this.feature = feature;
+		this.value = feature;
 	}
 
 	public String getFeature() {
-		return feature;
+		return value;
 	}
 
 	public Feature setFeature(String feature) {
-		this.feature = feature;
+		this.value = feature;
 		return this;
 	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Feature [feature=");
-		builder.append(feature);
+		builder.append("Feature [value=");
+		builder.append(value);
 		builder.append("]");
 		return builder.toString();
 	}

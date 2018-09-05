@@ -14,13 +14,19 @@ public class Product {
 	@XmlElement
 	private String title;
 	@XmlElement
+	private String description;
+	@XmlElement
 	private String price;
 	@XmlElementWrapper( name="features")
-	@XmlElement
+	@XmlElement(name = "feature")
 	private List<Feature> features;
 		
 	public String getTitle() {
 		return title;
+	}
+	
+	public String getDescription() {
+		return description;
 	}
 		
 	public String getPrice() {
@@ -33,6 +39,11 @@ public class Product {
 	
 	public Product setTitle(String title) {
 		this.title = title;
+		return this;
+	}
+	
+	public Product setDescription(String description) {
+		this.description = description;
 		return this;
 	}
 	
@@ -51,6 +62,8 @@ public class Product {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Product [title=");
 		builder.append(title);
+		builder.append(", description=");
+		builder.append(description);
 		builder.append(", price=");
 		builder.append(price);
 		builder.append(", features=");
@@ -58,6 +71,4 @@ public class Product {
 		builder.append("]");
 		return builder.toString();
 	}
-	
-	
 }

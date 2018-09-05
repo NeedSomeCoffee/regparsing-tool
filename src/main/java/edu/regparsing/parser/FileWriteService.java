@@ -24,7 +24,7 @@ public class FileWriteService {
 	
 	
 	private Path createDocument(String folder, String fileName) throws IOException {
-		Path declaredPath = Paths.get(".", folder + "/" + fileName.replaceAll(" ", "_") + ".xml");
+		Path declaredPath = Paths.get(".", folder + "/" + fileName.replaceAll("[^a-zA-Z0-9-_\\.]", "_") + ".xml");
 		
 		
 

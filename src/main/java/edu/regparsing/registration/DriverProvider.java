@@ -7,8 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class DriverProvider {
 	
-	public WebDriver getDriver () {
-		System.setProperty("webdriver.chrome.driver", new File("./main/resources/drivers/chromedriver/chromedriver.exe").getAbsolutePath());
+	public static WebDriver getDriver () {		
+		System.setProperty("webdriver.chrome.driver", new File("src/main/resources/drivers/chromedriver/chromedriver.exe").getAbsolutePath());
 		
 		return new ChromeDriver();
 	}
