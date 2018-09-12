@@ -60,7 +60,7 @@ public class DocumentParser {
 	}
 
 	private List<Feature> parseProductFeatures(Document doc) {
-		Elements selected = doc.select("#feature-bullets ul li > span");
+		Elements selected = doc.select("#feature-bullets ul li:not(.aok-hidden)");
 		List<Feature> features = new ArrayList<Feature>();
 		
 		
