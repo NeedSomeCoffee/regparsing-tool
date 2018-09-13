@@ -1,5 +1,7 @@
 package edu.regparsing.app;
 
+import java.util.logging.Logger;
+
 import edu.regparsing.exceptions.ParsingException;
 import edu.regparsing.exceptions.ResourceNotFoundException;
 import edu.regparsing.exceptions.WritingException;
@@ -12,6 +14,8 @@ import edu.regparsing.parser.XmlGenerator;
 import edu.regparsing.registration.RegistrationService;
 
 public class Application {
+	private static final Logger LOGGER = Logger.getLogger("App");
+	
 	public static void main(String[] args) {
 		String url = "https://www.amazon.com/LG-gram-Thin-Light-Laptop/dp/B078WRSHV4/ref=sr_1_82_sspa";
 
@@ -22,14 +26,15 @@ public class Application {
 			String title = parsed.getTitle();			
 
 			new FileWriteService("./data/", title).writeToFile(new XmlGenerator().createXmlForProduct(parsed));
+			
 		} catch (ParsingException | WritingException | ResourceNotFoundException e) {
-			e.printStackTrace();
+			LOGGER.severe(e.getMessage());
 		}
 		
 		
 		RegistrationService registrator = new RegistrationService();
 
-		Account acc = new Account("wololo", "qweertrt123dfgdfg342", "wololo@gmail.com");
+		Account acc = new Account("tryme", "tryme123", "tryme@gmail.com");
 
 		registrator.registerUser(acc);
 	}
